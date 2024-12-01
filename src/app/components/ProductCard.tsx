@@ -1,5 +1,7 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
+
 
 interface ProductCardProps {
   name: string;
@@ -22,9 +24,9 @@ export default function ProductCard({ name, price, imageSrc }: ProductCardProps)
   return (
     <div className="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between h-full text-center">
       <div>
-        <img src={imageSrc} alt={name} className="w-50 h-50 mx-auto mb-4" /> {/* Fixed size for consistency */}
+        <Image src={imageSrc} alt={name} width={250} height={250} className="mx-auto mb-4" /> {/* Fixed size for consistency */}
         <h2 className="text-lg font-bold">{name}</h2>
-        <p className="text-gray-600 text-sm">${price.toFixed(2)}</p>
+        <p className="text-gray-600 text-lg">${price.toFixed(2)}</p>
       </div>
       <div className="flex items-center justify-center mt-4">
         <button className="text-xl p-1" onClick={decrement}>-</button>
