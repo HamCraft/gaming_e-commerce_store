@@ -1,4 +1,7 @@
-export const products = [
+// app/api/products/route.ts
+
+export async function GET() {
+  const products = [
     {
       id: 1,
       name: 'God of War: Ragnarok - PlayStation 4',
@@ -48,4 +51,10 @@ export const products = [
       imageSrc: '/images/codMW3.png',
     },
   ];
-  
+
+  return new Response(JSON.stringify(products), {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}
